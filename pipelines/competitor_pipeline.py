@@ -57,8 +57,8 @@ class OptimizedCompetitorAnalysisPipeline:
         """
         print(f"\n{'='*60}")
         print(f"🚀 Starting Analysis: {company_name or company_website}")
-        print(f"💰 Cost Optimization: 1 LLM call (saves 67% vs traditional)")
-        print(f"{'='*60}\n")
+
+
         
         # Step 1: Create analysis prompt
         prompt = self._create_prompt(company_website, company_name)
@@ -89,15 +89,13 @@ class OptimizedCompetitorAnalysisPipeline:
             structured_data = {}
         
         
-        # Step 4: Generate HTML (NO LLM - Pure Python)
-        print("📄 Generating HTML report (no LLM call)...")
+        # Step 4: Generate HTML 
+        print("📄 Generating HTML report ...
         html_report = format_html_from_json(structured_data)
         print("✅ HTML report generated\n")
         
-        print(f"{'='*60}")
         print("✨ Analysis Complete!")
-        print(f"💰 Total LLM Calls: 1")
-        print(f"{'='*60}\n")
+
         
         return html_report
     
@@ -194,8 +192,6 @@ class BatchOptimizedPipeline(OptimizedCompetitorAnalysisPipeline):
         """
         print(f"\n{'='*60}")
         print(f"🚀 BATCH Analysis for {len(companies)} competitors")
-        print(f"💰 Cost Savings: ~{self._calculate_savings(len(companies))}% vs sequential")
-        print(f"{'='*60}\n")
         
         # Create batch prompt
         batch_prompt = self._create_batch_prompt(companies)
@@ -222,8 +218,6 @@ class BatchOptimizedPipeline(OptimizedCompetitorAnalysisPipeline):
         
         print(f"\n{'='*60}")
         print(f"✨ Batch Analysis Complete!")
-        print(f"💰 Total LLM Calls: 1 (for {len(companies)} companies!)")
-        print(f"💵 Savings: ~{self._calculate_savings(len(companies))}% vs individual")
         print(f"{'='*60}\n")
         
         return results
